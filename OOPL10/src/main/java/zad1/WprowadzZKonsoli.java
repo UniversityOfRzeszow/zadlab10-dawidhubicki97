@@ -5,6 +5,11 @@
  */
 package zad1;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -15,78 +20,91 @@ import java.util.Scanner;
 public class WprowadzZKonsoli {
 
     Scanner odczyt = new Scanner(System.in);
-
     void wprowadzInt() {
-        int liczba;
-
-        System.out.println("Podaj liczbe: ");
-        try {
-            liczba = odczyt.nextInt();
-        } catch (InputMismatchException e) {
-            System.out.println("Zly typ danych");
-
-        }
+         System.out.println("Wpisz liczbę : ");
+        
+       try { 
+            int a = odczyt.nextInt();
+            FileReader freader = new FileReader("plik.txt");
+            BufferedReader br = new BufferedReader(freader);
+            String output = br.readLine();
+            br.close();
+            
+            FileWriter fwo = new FileWriter("plik.txt");
+            BufferedWriter bwo = new BufferedWriter(fwo);
+            bwo.write(a);
+            bwo.newLine();
+            bwo.close();
+            }
+       catch (IOException e){
+           System.out.println(e.toString());
+       }
     }
 
     void wprowadzString() {
-        String wyraz;
-
-        System.out.println("Podaj wyraz: ");
-        try {
-            wyraz = odczyt.nextLine();
-        } catch (InputMismatchException e) {
-            System.out.println("Zly typ danych");
-
-        }
+        System.out.println("Wpisz tekst: ");
+  
+       try { 
+            String a =odczyt.nextLine();
+            FileReader freader = new FileReader("plik.txt");
+            BufferedReader breader = new BufferedReader(freader);
+            String output = breader.readLine();
+            breader.close();
+            
+            FileWriter fwo = new FileWriter("plik.txt");
+            BufferedWriter bwo = new BufferedWriter(fwo);
+            bwo.write(a);
+            bwo.newLine();
+            bwo.close();
+            }
+       catch (IOException e){
+           System.out.println(e.toString());
+       }
     }
 
     void wprowadzFloat() {
-        float liczba;
-
-        System.out.println("Podaj liczbe: ");
-        try {
-            liczba = odczyt.nextFloat();
-        } catch (InputMismatchException e) {
-            System.out.println("Zly typ danych");
-
-        }
+       try { 
+            Float a =odczyt.nextFloat();
+            FileReader freader = new FileReader("plik.txt");
+            BufferedReader breader = new BufferedReader(freader); 
+            String output = breader.readLine();
+            breader.close();
+            
+            FileWriter fwo = new FileWriter("plik.txt");
+            BufferedWriter bwo = new BufferedWriter(fwo);
+            bwo.write((int) (float) a);
+            bwo.newLine();
+            bwo.close();
+       }
+       catch (IOException e){
+           System.out.println(e.toString());
+       }
     }
 
-    void wprowadzLong() {
-        long liczba;
-
-        System.out.println("Podaj liczbe: ");
-        try {
-            liczba = odczyt.nextInt();
-        } catch (InputMismatchException e) {
-            System.out.println("Zly typ danych");
-
-        }
-    }
+   
 
     void wprowadzChar() {
-        char znak;
+        System.out.println("Wpisz znak: ");
 
-        System.out.println("Podaj znak: ");
-        try {
-            znak = odczyt.next().charAt(0);
-        } catch (InputMismatchException e) {
-            System.out.println("Zly typ danych");
-
-        }
+       try { 
+            char a = odczyt.next().charAt(0);
+            FileReader freader = new FileReader("plik.txt");
+            BufferedReader breader = new BufferedReader(freader); 
+            String output = breader.readLine();
+            breader.close();
+            
+            FileWriter fwo = new FileWriter("plik.txt");
+            BufferedWriter bwo = new BufferedWriter(fwo);
+            bwo.write(a);
+            bwo.newLine();
+            bwo.close();
+       }
+       catch (IOException e){
+           System.out.println(e.toString());
+       }
     }
 
-    void wprowadzShort() {
-        short liczba;
-
-        System.out.println("Podaj liczbe: ");
-        try {
-            liczba = odczyt.nextShort();
-        } catch (InputMismatchException e) {
-            System.out.println("Zly typ danych");
-
-        }
-    }
+   
 
     public static void main(String[] args) {
         WprowadzZKonsoli wprowadz = new WprowadzZKonsoli();
