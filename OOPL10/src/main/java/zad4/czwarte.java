@@ -32,7 +32,7 @@ public class czwarte {
         }
         catch(ArithmeticException e)
         {   
-            System.out.println("Kapperinho");
+            System.out.println("Blad");
             powtorzenie++;
         }
     }
